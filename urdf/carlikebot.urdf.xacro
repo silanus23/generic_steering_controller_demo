@@ -4,10 +4,10 @@
   <xacro:arg name="prefix" default="" />
 
   <!-- Use the existing carlikebot description from ros2_control_demo_description -->
-  <xacro:include filename="$(find carlikebot_bringup)/urdf/carlikebot_description.urdf.xacro" />
+  <xacro:include filename="$(find carlikebot_bringup)/external/ros2_control_demos/ros2_control_demo_description/carlikebot/urdf/carlikebot_description.urdf.xacro" />
 
   <!-- Import Rviz colors -->
-  <xacro:include filename="$(find carlikebot_bringup)/urdf/carlikebot.materials.xacro" />
+  <xacro:include filename="$(find carlikebot_bringup)/external/ros2_control_demos/ros2_control_demo_description/carlikebot/urdf/carlikebot_description.urdf.xacro" />
 
   <!-- Import carlikebot ros2_control description -->
   <xacro:include filename="$(find carlikebot_bringup)/ros2_control/generic_control.ros2_control.xacro" />
