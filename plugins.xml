@@ -1,0 +1,10 @@
+<library path="carlike_kinematics">
+  <class
+    name="carlikebot_bringup/CarLikeKinematics"
+    type="carlikebot_bringup::CarLikeKinematics"
+    base_class_type="kinematic_model::KinematicModelBase">
+    <description>
+      A kinematic model plugin for a car-like robot.
+    </description>
+  </class>
+</library>
