@@ -14,7 +14,7 @@ Most files are adapted directly from the official `ros2_control_demos` repositor
 
 ## Note
 
-This project is intended for demonstration and experimentation purposes only. Please use ```git submodule update --init --recursive```. 
+This project is intended for demonstration and experimentation purposes only.
 You can test this by 
 ```
   ros2 topic pub /carlikebot_base_controller/reference geometry_msgs/msg/TwistStamped "{

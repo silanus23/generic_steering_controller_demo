@@ -32,24 +32,21 @@ target_include_directories(carlike_kinematics PUBLIC
   $<INSTALL_INTERFACE:include>
 )
 
-# Use ament_target_dependencies instead of target_link_libraries
-ament_target_dependencies(carlike_kinematics
-  generic_steering_controller
-  pluginlib
-  rclcpp
-  rclcpp_lifecycle
-  geometry_msgs
-  nav_msgs
-  tf2
-  tf2_geometry_msgs
+target_link_libraries(carlike_kinematics PUBLIC
+  generic_steering_controller::generic_steering_controller
+  pluginlib::pluginlib
+  rclcpp::rclcpp
+  rclcpp_lifecycle::rclcpp_lifecycle
+  tf2::tf2
+  tf2_geometry_msgs::tf2_geometry_msgs
+  ${geometry_msgs_TARGETS}
+  ${nav_msgs_TARGETS}
 )
 
 # --- CRITICAL: Export the Plugin ---
 pluginlib_export_plugin_description_file(generic_steering_controller plugins.xml)
 
 # --- Installation ---
-
-# Install the compiled plugin library
 install(
   TARGETS carlike_kinematics
   EXPORT export_${PROJECT_NAME}
@@ -58,32 +55,19 @@ install(
   RUNTIME DESTINATION bin
 )
 
-# Install the plugin's header file (if you have any)
 install(
   DIRECTORY include/
   DESTINATION include
 )
 
-# Install the plugin registration file
 install(
   FILES plugins.xml
   DESTINATION share/${PROJECT_NAME}
 )
 
-# Install launch, config, and urdf files
 install(
   DIRECTORY launch config urdf ros2_control
   DESTINATION share/${PROJECT_NAME}
-)
-
-# Export dependencies
-ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
-ament_export_dependencies(
-  generic_steering_controller
-  pluginlib
-  rclcpp
-  geometry_msgs
-  nav_msgs
 )
 
 ament_package()
